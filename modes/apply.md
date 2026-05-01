@@ -4,7 +4,7 @@ Interactive mode for when the candidate is filling out an application form in Ch
 
 ## Requirements
 
-- **Best with Playwright in visible mode**: In visible mode, the candidate sees the browser and Claude can interact with the page.
+- **Best with Playwright in visible mode**: In visible mode, the candidate sees the browser and Pi can interact with the page.
 - **Without Playwright**: the candidate shares a screenshot or pastes the questions manually.
 
 ## Workflow

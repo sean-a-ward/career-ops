@@ -13,9 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white" alt="Claude Code">
-  <img src="https://img.shields.io/badge/OpenCode-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode">
-  <img src="https://img.shields.io/badge/Codex_(soon)-6B7280?style=flat&logo=openai&logoColor=white" alt="Codex">
+  <img src="https://img.shields.io/badge/Pi_Coding_Agent-111827?style=flat&logo=terminal&logoColor=white" alt="Pi Coding Agent">
   <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white" alt="Go">
   <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white" alt="Playwright">
@@ -51,7 +49,7 @@ Career-Opsは、あらゆるAIコーディングCLIを本格的な求職コマ�
 
 > **重要: これは「とにかく数を撃つ」ツールではありません。** career-opsはフィルターです -- 何百もの求人の中から、あなたの時間を割く価値のある数件を見つけ出すためのツールです。本システムは4.0/5未満のスコアの求人への応募を強く非推奨としています。あなたの時間もリクルーターの時間も貴重です。送信前に必ず内容を確認してください。
 
-career-opsはエージェンティックです: Claude CodeがPlaywrightで求人ページを操作し、（キーワードマッチではなく）あなたのCVと求人票を突き合わせて適合度を推論し、求人ごとにレジュメを最適化します。
+career-opsはエージェンティックです: PiがPlaywrightで求人ページを操作し、（キーワードマッチではなく）あなたのCVと求人票を突き合わせて適合度を推論し、求人ごとにレジュメを最適化します。
 
 > **ご注意: 最初の評価はあまり良くありません。** システムはまだあなたのことを知らないからです。コンテキストを与えてください -- CV、キャリアストーリー、実績の裏付け、好み、得意なこと、避けたいこと。育てれば育てるほど精度が上がります。新人リクルーターをオンボーディングするのと同じです: 最初の1週間はあなたについて学ぶ必要があり、その後かけがえのない存在になります。
 
@@ -67,7 +65,7 @@ career-opsはエージェンティックです: Claude CodeがPlaywrightで求�
 | **交渉スクリプト** | 給与交渉のフレームワーク、地域ディスカウント反論、競合オファーの活用 |
 | **ATS向けPDF生成** | Space Grotesk + DM Sansデザインのキーワード注入型CV |
 | **ポータルスキャナー** | 45社以上事前設定済み（Anthropic、OpenAI、ElevenLabs、Retool、n8n...) + Ashby、Greenhouse、Lever、Wellfound横断のカスタムクエリ |
-| **バッチ処理** | `claude -p`ワーカーによる並列評価 |
+| **バッチ処理** | `pi -p`ワーカーによる並列評価 |
 | **ダッシュボードTUI** | パイプラインを閲覧・フィルター・ソートするターミナルUI |
 | **Human-in-the-Loop** | AIは評価と推奨を行い、決定と実行はあなたが行います。システムが応募を自動送信することは絶対になく、最終判断は常にあなたが下します |
 | **パイプラインの整合性** | 自動マージ、重複排除、ステータス正規化、ヘルスチェック |
@@ -90,10 +88,10 @@ cp templates/portals.example.yml portals.yml       # 対象企業をカスタマ
 # 4. CVを追加
 # プロジェクトルートにcv.mdを作成し、CVをマークダウンで記述
 
-# 5. Claudeでパーソナライズ
-claude   # このディレクトリでClaude Codeを起動
+# 5. Piでパーソナライズ
+pi   # このディレクトリでPiを起動
 
-# そしてClaudeにシステムを自分向けに調整してもらう:
+# そしてPiにシステムを自分向けに調整してもらう:
 # 「アーキタイプをバックエンドエンジニアの役割に変更して」
 # 「モードを日本語に翻訳して」
 # 「これら5社をportals.ymlに追加して」
@@ -103,7 +101,7 @@ claude   # このディレクトリでClaude Codeを起動
 # 求人URLを貼るか、/career-opsを実行
 ```
 
-> **このシステムはClaude自身がカスタマイズする前提で設計されています。** モード、アーキタイプ、スコアリング重み、交渉スクリプト -- すべてClaudeに依頼すれば変更してくれます。Claudeは自分が使うのと同じファイルを読むので、どこを編集すればよいか正確に把握しています。
+> **このシステムはPi自身がカスタマイズする前提で設計されています。** モード、アーキタイプ、スコアリング重み、交渉スクリプト -- すべてPiに依頼すれば変更してくれます。Piは自分が使うのと同じファイルを読むので、どこを編集すればよいか正確に把握しています。
 
 完全なセットアップガイドは [docs/SETUP.md](docs/SETUP.md) を参照してください。
 
@@ -181,7 +179,7 @@ go build -o career-dashboard .
 
 ```
 career-ops/
-├── CLAUDE.md                    # エージェントの指示
+├── AGENTS.md                    # エージェントの指示
 ├── cv.md                        # あなたのCV（自分で作成）
 ├── article-digest.md            # あなたの実績の裏付け（任意）
 ├── config/
@@ -211,13 +209,13 @@ career-ops/
 
 ## 技術スタック
 
-![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)
+![Pi](https://img.shields.io/badge/Pi_Code-000?style=flat&logo=anthropic&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
 ![Bubble Tea](https://img.shields.io/badge/Bubble_Tea-FF75B5?style=flat&logo=go&logoColor=white)
 
-- **エージェント**: Claude Code（カスタムスキルとモード付き）
+- **エージェント**: Pi（カスタムスキルとモード付き）
 - **PDF**: Playwright/Puppeteer + HTMLテンプレート
 - **スキャナー**: Playwright + Greenhouse API + WebSearch
 - **ダッシュボード**: Go + Bubble Tea + Lipgloss（Catppuccin Mochaテーマ）

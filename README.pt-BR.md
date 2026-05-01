@@ -13,9 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white" alt="Claude Code">
-  <img src="https://img.shields.io/badge/OpenCode-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode">
-  <img src="https://img.shields.io/badge/Codex_(soon)-6B7280?style=flat&logo=openai&logoColor=white" alt="Codex">
+  <img src="https://img.shields.io/badge/Pi_Coding_Agent-111827?style=flat&logo=terminal&logoColor=white" alt="Pi Coding Agent">
   <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white" alt="Go">
   <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white" alt="Playwright">
@@ -51,7 +49,7 @@ Career-Ops transforma qualquer CLI de código com IA em uma central completa de 
 
 > **Importante: isso NÃO é uma ferramenta de disparo em massa.** Career-ops é um filtro -- ajuda você a encontrar as poucas vagas que realmente valem seu tempo entre centenas. O sistema recomenda fortemente não se candidatar a nada com nota abaixo de 4.0/5. Seu tempo é valioso, e o do recrutador também. Sempre revise antes de enviar.
 
-Career-ops é agentic: Claude Code navega páginas de carreira com Playwright, avalia aderência comparando seu CV com a descrição da vaga (não por simples correspondência de palavras-chave) e adapta seu currículo para cada vaga.
+Career-ops é agentic: Pi navega páginas de carreira com Playwright, avalia aderência comparando seu CV com a descrição da vaga (não por simples correspondência de palavras-chave) e adapta seu currículo para cada vaga.
 
 > **Aviso: as primeiras avaliações não vão ser ótimas.** O sistema ainda não conhece você. Dê contexto -- seu CV, sua trajetória profissional, suas provas de resultado, suas preferências, no que você é bom e o que quer evitar. Quanto mais você alimenta, melhor ele fica. Pense nisso como o onboarding de um novo recrutador: na primeira semana ele precisa te conhecer, depois se torna indispensável.
 
@@ -67,7 +65,7 @@ Construído por alguém que usou isso para avaliar 740+ vagas, gerar 100+ CVs pe
 | **Scripts de negociação** | Frameworks para negociação salarial, resposta a desconto geográfico e alavanca com ofertas concorrentes |
 | **Geração de PDF ATS** | CVs com injeção de palavras-chave usando design com Space Grotesk + DM Sans |
 | **Scanner de portais** | 45+ empresas pré-configuradas (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + consultas customizadas em Ashby, Greenhouse, Lever e Wellfound |
-| **Processamento em lote** | Avaliação paralela com workers `claude -p` |
+| **Processamento em lote** | Avaliação paralela com workers `pi -p` |
 | **Dashboard TUI** | Interface no terminal para navegar, filtrar e ordenar seu pipeline |
 | **Humano no loop** | A IA avalia e recomenda, você decide e age. O sistema nunca envia candidatura automaticamente -- a decisão final é sempre sua |
 | **Integridade do pipeline** | Merge automatizado, deduplicação, normalização de status e health checks |
@@ -90,10 +88,10 @@ cp templates/portals.example.yml portals.yml       # Personalize as empresas
 # 4. Adicione seu CV
 # Crie cv.md na raiz do projeto com seu CV em markdown
 
-# 5. Personalize com Claude
-claude   # Abra o Claude Code neste diretório
+# 5. Personalize com Pi
+pi   # Abra o Pi neste diretório
 
-# Depois, peça ao Claude para adaptar o sistema para você:
+# Depois, peça ao Pi para adaptar o sistema para você:
 # "Mude os arquétipos para vagas de engenharia backend"
 # "Traduza os modos para português"
 # "Adicione estas 5 empresas ao portals.yml"
@@ -103,7 +101,7 @@ claude   # Abra o Claude Code neste diretório
 # Cole a URL de uma vaga ou rode /career-ops
 ```
 
-> **O sistema foi projetado para ser customizado pelo próprio Claude.** Modos, arquétipos, pesos de pontuação, scripts de negociação -- é só pedir para ele alterar. Ele lê os mesmos arquivos que usa, então sabe exatamente o que editar.
+> **O sistema foi projetado para ser customizado pelo próprio Pi.** Modos, arquétipos, pesos de pontuação, scripts de negociação -- é só pedir para ele alterar. Ele lê os mesmos arquivos que usa, então sabe exatamente o que editar.
 
 Veja [docs/SETUP.md](docs/SETUP.md) para o guia completo de configuração.
 
@@ -181,7 +179,7 @@ Recursos: 6 abas de filtro, 4 modos de ordenação, visualização agrupada/plan
 
 ```
 career-ops/
-├── CLAUDE.md                    # Instruções para o agente
+├── AGENTS.md                    # Instruções para o agente
 ├── cv.md                        # Seu CV (crie este arquivo)
 ├── article-digest.md            # Seus proof points (opcional)
 ├── config/
@@ -211,13 +209,13 @@ career-ops/
 
 ## Stack de tecnologia
 
-![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)
+![Pi](https://img.shields.io/badge/Pi_Code-000?style=flat&logo=anthropic&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
 ![Bubble Tea](https://img.shields.io/badge/Bubble_Tea-FF75B5?style=flat&logo=go&logoColor=white)
 
-- **Agente**: Claude Code com skills e modos customizados
+- **Agente**: Pi com skills e modos customizados
 - **PDF**: Playwright/Puppeteer + template HTML
 - **Scanner**: Playwright + Greenhouse API + WebSearch
 - **Dashboard**: Go + Bubble Tea + Lipgloss (tema Catppuccin Mocha)

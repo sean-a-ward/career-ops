@@ -30,6 +30,23 @@ function checkNodeVersion() {
   };
 }
 
+function checkPi() {
+  const paths = (process.env.PATH || '').split(':');
+  const names = process.platform === 'win32' ? ['pi.cmd', 'pi.exe', 'pi'] : ['pi'];
+  for (const dir of paths) {
+    for (const name of names) {
+      if (existsSync(join(dir, name))) {
+        return { pass: true, label: 'Pi CLI found' };
+      }
+    }
+  }
+  return {
+    pass: false,
+    label: 'Pi CLI not found',
+    fix: 'Install Pi and make sure `pi` is in PATH',
+  };
+}
+
 function checkDependencies() {
   if (existsSync(join(projectRoot, 'node_modules'))) {
     return { pass: true, label: 'Dependencies installed' };
@@ -155,6 +172,7 @@ async function main() {
 
   const checks = [
     checkNodeVersion(),
+    checkPi(),
     checkDependencies(),
     await checkPlaywright(),
     checkCv(),
@@ -186,7 +204,7 @@ async function main() {
     console.log(`Result: ${failures} issue${failures === 1 ? '' : 's'} found. Fix them and run \`npm run doctor\` again.`);
     process.exit(1);
   } else {
-    console.log('Result: All checks passed. You\'re ready to go! Run `claude` to start.');
+    console.log('Result: All checks passed. You\'re ready to go! Run `pi` to start.');
     console.log('');
     console.log('Join the community: https://discord.gg/8pRpHETxa4');
     process.exit(0);

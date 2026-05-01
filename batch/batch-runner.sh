@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# career-ops batch runner — standalone orchestrator for claude -p workers
-# Reads batch-input.tsv, delegates each offer to a claude -p worker,
+# career-ops batch runner — standalone orchestrator for pi -p workers
+# Reads batch-input.tsv, delegates each offer to a pi -p worker,
 # tracks state in batch-state.tsv for resumability.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -31,8 +31,8 @@ MIN_SCORE=0
 
 usage() {
   cat <<'USAGE'
-career-ops batch runner — process job offers in batch via claude -p workers
-Uses your default Claude model (Claude Max subscription).
+career-ops batch runner — process job offers in batch via pi -p workers
+Uses your configured Pi model.
 
 Usage: batch-runner.sh [OPTIONS]
 
@@ -119,8 +119,8 @@ check_prerequisites() {
     exit 1
   fi
 
-  if ! command -v claude &>/dev/null; then
-    echo "ERROR: 'claude' CLI not found in PATH."
+  if ! command -v pi &>/dev/null; then
+    echo "ERROR: 'pi' CLI not found in PATH."
     exit 1
   fi
 
@@ -350,11 +350,10 @@ process_offer() {
     -e "s|{{ID}}|${esc_id}|g" \
     "$PROMPT_FILE" > "$resolved_prompt"
 
-  # Launch claude -p worker (uses default model from Claude Max subscription)
+  # Launch pi -p worker (uses the configured Pi model)
   local exit_code=0
-  claude -p \
-    --dangerously-skip-permissions \
-    --append-system-prompt-file "$resolved_prompt" \
+  pi -p \
+    --append-system-prompt "$(cat "$resolved_prompt")" \
     "$prompt" \
     > "$log_file" 2>&1 || exit_code=$?
 

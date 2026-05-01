@@ -49,24 +49,11 @@ The negotiation section provides frameworks for salary discussions. Replace the 
 - Geographic arbitrage strategy
 - Pushback responses
 
-## Hooks (Optional)
+## Pi Extensions (Optional)
 
-Career-ops can integrate with external systems via Claude Code hooks. Example hooks:
+Career-ops can integrate with external systems via Pi extensions. Use an extension when you need custom commands, tools, or lifecycle behavior beyond the built-in prompt templates in `.pi/prompts/`.
 
-```json
-{
-  "hooks": {
-    "SessionStart": [{
-      "hooks": [{
-        "type": "command",
-        "command": "echo 'Career-ops session started'"
-      }]
-    }]
-  }
-}
-```
-
-Save hooks in `.claude/settings.json`.
+For most customization, edit `AGENTS.md`, `.pi/prompts/*.md`, or `.pi/skills/career-ops/SKILL.md` directly.
 
 ## States (templates/states.yml)
 

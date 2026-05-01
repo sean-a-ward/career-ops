@@ -19,4 +19,4 @@ Plain text (`.txt`) and Markdown (`.md`) are preferred — they require no extra
 
 ## After adding samples
 
-Tell Claude Code: "recalibrate my writing style" — it will re-scan the files and update your profile.
+Tell Pi: "recalibrate my writing style" — it will re-scan the files and update your profile.
